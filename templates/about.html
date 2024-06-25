@@ -1,0 +1,378 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dark.css' %}">
+    <link rel="stylesheet" href="{% static 'css/color-1.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/color-1.css' %}" class="alternate-style" title="color-1" disabled>
+    <link rel="stylesheet" href="{% static 'css/color-2.css' %}" class="alternate-style" title="color-2" disabled>
+    <link rel="stylesheet" href="{% static 'css/color-3.css' %}" class="alternate-style" title="color-3" disabled>
+    <link rel="stylesheet" href="{% static 'css/color-4.css' %}" class="alternate-style" title="color-4" disabled>
+    <link rel="stylesheet" href="{% static 'css/color-5.css' %}" class="alternate-style" title="color-5" disabled>
+
+    <link rel="stylesheet" href="{% static 'css/style-switcher.css' %}">
+</head>
+<body>
+    <style>
+           
+        .aside .nav :hover{
+            color: var(--skin-color);
+
+        }
+    
+
+        .section .container {
+            padding-top: 60px;
+            padding-bottom: 70px;
+        }
+        .section-title {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 40px;
+            color: var(--text-black-900);
+            font-weight: 700;
+            position: relative;
+        }
+        .section-title h2::before {
+            content: '';
+            height: 4px;
+            width: 50px;
+            background-color: var(--skin-color);
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+        .section-title h2::after {
+            content: '';
+            height: 4px;
+            width: 25px;
+            background-color: var(--skin-color);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 8px;
+        }
+        .about .about-content {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .about .about-content .about-text {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .about .about-content .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: var(--text-black-900);
+        }
+        .about .about-content .about-text h3 span {
+            color: var(--skin-color);
+        }
+        .about .about-content .about-text p {
+            font-size: 16px;
+            line-height: 25px;
+            color: var(--text-black-700);
+        }
+        .about .about-content .personal-info {
+            flex: 0 0% 80%;
+            max-width: 100%;
+            margin-top: 40px;
+        }
+        .about .about-content .personal-info .info-item {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        .about .about-content .personal-info .info-item p {
+            font-weight: 600;
+            padding: 10px 0;
+            font-size: 16px;
+            color: var(--text-black-900);
+            border-bottom: 1px solid var(--bg-black-50);
+        }
+        .about .about-content .personal-info .info-item p span {
+            font-weight: 400;
+            color: var(--text-black-700);
+            margin-left: 4px;
+            display: inline-block;
+        }
+        .about .about-content .personal-info .buttons {
+            margin-top: 30px;
+        }
+        .about .about-content .personal-info .buttons .btn {
+            margin-right: 15px;
+            margin-top: 10px;
+        }
+        .about .about-content .education,
+        .about .about-content .experience {
+            flex: 0 0 50%;
+            max-width: 50%;
+            margin-top: 30px;
+        }
+        .about .about-content h3.title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: var(--text-black-900);
+        }
+        .about .about-content .timeline-box {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .about .about-content .timeline {
+            background-color: var(--bg-black-100);
+            padding: 30px 15px;
+            border: 1px solid var(--bg-black-50);
+            border-radius: 10px;
+            width: 100%;
+            position: relative;
+        }
+        .shadow-dark {
+            box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+        }
+        .about .about-content .timeline .timeline-item {
+            position: relative;
+            padding-left: 37px;
+            padding-bottom: 50px;
+        }
+        .about .about-content .timeline .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .about .about-content .timeline .timeline-item::before {
+            content: '';
+            width: 1px;
+            position: absolute;
+            height: 100%;
+            left: 7px;
+            top: 0;
+            background-color: var(--skin-color);
+        }
+        .about .about-content .timeline .circle-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background-color: var(--skin-color);
+        }
+        .about .about-content .timeline .timeline-date {
+            font-weight: 400;
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: var(--text-black-700);
+        }
+        .about .about-content .timeline .timeline-date .fa {
+            margin-right: 5px;
+        }
+        .about .about-content .timeline .timeline-title {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: capitalize;
+            color: var(--text-black-900);
+        }
+        .about .about-content .timeline .timeline-text {
+            line-height: 25px;
+            font-size: 16px;
+            text-align: justify;
+            color: var(--text-black-700);
+        }
+        @media (max-width: 1199px) {
+            .aside {
+                left: -270px;
+            }
+            .main-container {
+                padding-left: 0;
+            }
+            .about .about-content .personal-info .info-item p span {
+                display: block;
+                margin-left: 0;
+            }
+            
+        }
+        @media (max-width: 991px) {
+            .contact .contact-info-item,
+            .portfolio .portfolio-item,
+            .services .service-item {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            .home .home-info {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .home .home-img {
+                display: none;
+            }
+            
+        }
+        @media (max-width: 767px) {
+            .contact .contact-form .col-6,
+            .contact .contact-info-item,
+            .portfolio .portfolio-item,
+            .services .service-item,
+            .about .about-content .experience,
+            .about .about-content .education,
+            .about .about-content .skills,
+            .about .about-content .personal-info {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+        }
+
+        
+    </style>
+
+    <div class="main-container">
+        <div class="aside">
+            <div class="logo">
+                <a href="#"><span>Portfolio</span>Forge</a>          
+            </div>
+            <div class="nav-toggler">
+                <span></span>
+            </div>
+            <ul class="nav">
+                <li><a href="{% url 'home' %}"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="{% url 'about' %}"class="active"><i class="fa fa-user"></i>About</a></li>
+                <li><a href="{% url 'service' %}"><i class="fa fa-list"></i>Skills & Services</a></li>
+                <li><a href="{% url 'project' %}"><i class="fa fa-folder-open"></i>Projects</a></li>
+                <li><a href="{% url 'contact' %}"><i class="fa fa-comments"></i>Contact</a></li>
+                <li><a href="{% url 'log_in' %}"><i class="fa fa-sign-out-alt"></i>Log Out</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <section class="about section">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2>About Me</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="about-content padd-15">
+                            <div class="row">
+                                <div class="about-text">
+                                    <h3>I am {{ profile.name }} and <span>{{ profile.profession }}</span></h3>
+                                    <p>{{ profile.description }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="personal-info padd-15">
+                                    <div class="row">
+                                        <div class="info-item padd-15">
+                                            <p>Birthday : <span>{{ about_info.birthday }}</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Age : <span>{{ about_info.age }}</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>LinkedIn : <span>{{ about_info.website }}</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Email : <span>{{ about_info.email }}</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Degree : <span>{{ about_info.degree }}</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Phone : <span>{{ about_info.phone }}</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>City : <span>{{ about_info.city }}</span></p>
+                                        </div>
+                                        <div class="info-item padd-15">
+                                            <p>Freelance : <span>{{ about_info.freelance|yesno:"Yes,No" }}</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="buttons padd-15">
+                                            <a href="{% url 'download_latest_resume' %}" class="btn btn-primary">Download Resume</a>                                            <a href="{% url 'contact' %}" class="btn hire-me">Hire Me</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="education padd-15">
+                                    <h3 class="title">Education</h3>
+                                    <div class="row">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline shadow-dark">
+                                                {% for education in education_list %}
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i> {{ education.start_date }} - {{ education.end_date }}
+                                                    </h3>
+                                                    <h4 class="timeline-title">{{ education.type_of_study }}</h4>
+                                                    <p class="timeline-text">{{ education.institution }}</p>
+                                                    <p class="timeline-text">{{ education.area_of_study }}</p>
+                                                    <p class="timeline-text">{{ education.score }}</p>
+
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="experience padd-15">
+                                    <h3 class="title">Experience</h3>
+                                    <div class="row">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline shadow-dark">
+                                                {% for experience in experience_list %}
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i> {{ experience.start_date }} - {{ experience.end_date }}
+                                                    </h3>
+                                                    <h4 class="timeline-title">{{ experience.position }}</h4>
+                                                    <p class="timeline-text">{{ experience.company }}, {{ experience.location }}</p>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <div class="style-switcher">
+        <div class="style-switcher-toggler s-icon">
+            <i class="fas fa-cog fa-spin"></i>
+        </div>
+        <div class="day-night s-icon">
+            <i class="fas"></i>
+        </div>
+        <h4>Theme Colors</h4>
+        <div class="colors">
+            <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+            <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+            <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+            <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+            <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+        </div>
+    </div>
+
+
+    <script src="{% static 'js/aside.js' %}"></script>  
+    <script src="{% static 'js/style-switcher.js' %}"></script>
+</body>
+</html>
